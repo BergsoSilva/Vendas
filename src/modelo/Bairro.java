@@ -11,27 +11,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author pc
  */
 @Entity
-public class Logradouro implements Serializable {
+public class Bairro implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "logcodigo" , nullable = false, unique = true)
+    @Column(name = "baicodigo", nullable = false, unique = true)
     private Long id;
-    @Column(name = "logdescricao")
-    private String descricao;
-    @Column(name = "logcodigopostal")
-    private String codigopostal;
-    @Column(name = "logbaicodigo")
-    private Bairro bairro;
+    @Column(name="bainome")
+    private String nome;
+    @Column(name = "baicidcodigo")
+    @ManyToOne
+    private Cidade cidade; // varios bairro para uma cidade
+    @Column(name = "baizona")
+    private String zona;
     
-
     public Long getId() {
         return id;
     }
@@ -40,29 +41,29 @@ public class Logradouro implements Serializable {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getNome() {
+        return nome;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getCodigopostal() {
-        return codigopostal;
+    public Cidade getCidade() {
+        return cidade;
     }
 
-    public void setCodigopostal(String codigopostal) {
-        this.codigopostal = codigopostal;
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
-    public Bairro getBairro() {
-        return bairro;
+    public String getZona() {
+        return zona;
     }
 
-    public void setBairro(Bairro bairro) {
-        this.bairro = bairro;
+    public void setZona(String zona) {
+        this.zona = zona;
     }
 
- 
+    
 }
