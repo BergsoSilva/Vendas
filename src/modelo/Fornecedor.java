@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.ManyToAny;
@@ -23,6 +24,7 @@ import org.hibernate.annotations.ManyToAny;
  * @author pc
  */
 @Entity
+@Table(name = "fornecedor")
 public class Fornecedor implements Serializable {
 
     private static final long serialVersionUID = 1L;

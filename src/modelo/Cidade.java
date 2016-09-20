@@ -12,12 +12,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  *
  * @author pc
  */
 @Entity
+@Table(name="cidade")
 public class Cidade implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -27,7 +31,6 @@ public class Cidade implements Serializable {
     private Long id;
     @Column(name = "cidnome")
     private String nome;
-    @Column(name = "cisestcodigo")
     @ManyToOne // Varias cidade pra um estado
     private Estado estado;
     
